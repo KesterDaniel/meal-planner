@@ -40,24 +40,25 @@ const initialCalenderState = {
 
 function calendar(state=initialCalenderState, action){
     const { day, meal, recipe} = action
-    if(action.type = ADD_RECIPE){
-        return{
-            ...state,
-            [day]:{
-                ...state[day],
-                [meal]: recipe
+    switch (action.type) {
+        case ADD_RECIPE:
+            return{
+                ...state,
+                [day]:{
+                    ...state[day],
+                    [meal]: recipe.label
+                }
             }
-        }
-    }else if(action.type = REMOVE_FROM_CALENDER){
-        return{
-            ...state,
-            [day]: {
-                ...state[day],
-                [meal]: null
-            }
-        }
-    }else{
-        return state
+        case REMOVE_FROM_CALENDER:
+            return{
+                ...state,
+                [day]:{
+                    ...state[day],
+                    [meal]: null
+                }
+            }    
+        default:
+            return state
     }
 }
 
