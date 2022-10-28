@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+import { configureStore } from "@reduxjs/toolkit"
+import calendar from "./reducers/index"
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore(
+    {reducer: calendar}
+)
+
+
+ReactDOM.render(<App store={store} />, document.getElementById('root'));
 registerServiceWorker();

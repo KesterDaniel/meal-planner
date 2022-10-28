@@ -45,7 +45,7 @@ function calendar(state=initialCalenderState, action){
             ...state,
             [day]:{
                 ...state[day],
-                [meal]: recipe.label
+                [meal]: recipe
             }
         }
     }else if(action.type = REMOVE_FROM_CALENDER){
