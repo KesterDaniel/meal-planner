@@ -1,46 +1,45 @@
 import React, { Component } from 'react'
-import { addrecipe } from "../actions"
+import { addrecipe } from '../actions'
 
 class App extends Component {
-  state={
+  state = {
     calendar: null
   }
-
   componentDidMount(){
-    const { store } = this.props
+   const { store } = this.props
 
-    store.subscribe(()=>{
-      this.setState(()=>({
-        calendar: store.getState()
-      }))
-    })
+   store.subscribe(()=>{
+    this.setState(()=>({
+      calendar: store.getState()
+    }))
+   })
   }
-  
-  submitFood = ()=>{
-    this.props.store.dispatch(addrecipe({
+
+  submitfood = ()=>{
+    const { store } = this.props
+    store.dispatch(addrecipe({
       day: "monday",
       meal: "breakfast",
-      recipe: {
+      recipe:{
         label: this.input.value
       }
     }))
-
     this.input.value = ""
   }
-
   render() {
     return (
       <div>
         <input
-          type='text'
-          ref={(input) => this.input = input}
-          placeholder="Monday's Breakfast"
+          type="text"
+          ref = {(input)=> this.input = input}
+          placeholder="Mondays Breakfast"
         />
-        <button onClick={this.submitFood}>Submit</button>
+        <button onClick={this.submitfood}>Submit</button>
 
         <pre>
-          Monday's Breakfast: {this.state.calendar && this.state.calendar.monday.breakfast}
-        </pre>      </div>
+          Mondays breakfast: {this.state.calendar && this.state.calendar.monday.breakfast}
+        </pre>
+      </div>
     )
   }
 }

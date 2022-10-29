@@ -42,7 +42,7 @@ function calendar(state=initialCalenderState, action){
     const { day, meal, recipe} = action
     switch (action.type) {
         case ADD_RECIPE:
-            return{
+            return {
                 ...state,
                 [day]:{
                     ...state[day],
@@ -56,7 +56,8 @@ function calendar(state=initialCalenderState, action){
                     ...state[day],
                     [meal]: null
                 }
-            }    
+            }
+    
         default:
             return state
     }
