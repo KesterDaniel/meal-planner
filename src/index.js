@@ -5,9 +5,11 @@ import './index.css';
 import App from './components/App';
 import {configureStore} from "@reduxjs/toolkit"
 import calendar from './reducers';
+import rootReducer from "./reducers"
 import registerServiceWorker from './registerServiceWorker';
 
-const store = configureStore({reducer:calendar})
+const store = configureStore({reducer:rootReducer})
+console.log(store.getState())
 
 
 ReactDOM.render(
