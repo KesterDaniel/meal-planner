@@ -4,7 +4,6 @@ import {Provider} from "react-redux"
 import './index.css';
 import App from './components/App';
 import {configureStore} from "@reduxjs/toolkit"
-import calendar from './reducers';
 import rootReducer from "./reducers"
 import registerServiceWorker from './registerServiceWorker';
 
